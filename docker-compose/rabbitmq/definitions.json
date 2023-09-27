@@ -33,6 +33,15 @@
       "arguments": {
         "x-queue-type": "classic"
       }
+    },
+    {
+      "name": "email_queue",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-queue-type": "classic"
+      }
     }
   ],
   "exchanges": [
@@ -53,6 +62,14 @@
       "destination": "order_queue",
       "destination_type": "queue",
       "routing_key": "order_routing_key",
+      "arguments": {}
+    },
+    {
+      "source": "order_exchange",
+      "vhost": "/",
+      "destination": "email_queue",
+      "destination_type": "queue",
+      "routing_key": "email_routing_key",
       "arguments": {}
     }
   ]

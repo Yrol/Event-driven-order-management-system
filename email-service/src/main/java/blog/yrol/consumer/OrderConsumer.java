@@ -1,6 +1,5 @@
 package blog.yrol.consumer;
 
-
 import blog.yrol.dto.OrderEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,10 +11,10 @@ public class OrderConsumer {
 
     private Logger LOGGER = LoggerFactory.getLogger(OrderConsumer.class);
 
-    @RabbitListener(queues = "${rabbitmq.queue.order.name}")
+    @RabbitListener(queues = "${rabbitmq.queue.email.name}")
     public void consumer(OrderEvent orderEvent) {
-        LOGGER.info(String.format("Order event received from stock service => %s", orderEvent.toString()));
+        LOGGER.info(String.format("Order event received from email service => %s", orderEvent.toString()));
 
-        // Save order in DB as the next step
+        // Send email to the customer as the next step
     }
 }
