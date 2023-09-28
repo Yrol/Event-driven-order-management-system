@@ -12,7 +12,7 @@ services:
       - "./rabbitmq-status.sh:/usr/local/bin/rabbitmq-status.sh"
     environment:
       #      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xms128m -Xmx256m"
-      - "JAVA_OPTS=-Dapp.clients.scheme=http -Dserver.port=8080 -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xms128m -Xmx256m"
+      - "JAVA_OPTS=-Dapp.clients.scheme=http -Dspring.profiles.active=dev-docker -Dserver.port=8080 -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xms128m -Xmx256m"
     networks:
       - ${GLOBAL_NETWORK:-services}
   email-service:
@@ -27,7 +27,7 @@ services:
       - "./rabbitmq-status.sh:/usr/local/bin/rabbitmq-status.sh"
     environment:
       #      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xms128m -Xmx256m"
-      - "JAVA_OPTS=-Dapp.clients.scheme=http -Dserver.port=8081 -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5006 -Xms128m -Xmx256m"
+      - "JAVA_OPTS=-Dapp.clients.scheme=http -Dspring.profiles.active=dev-docker -Dserver.port=8081 -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5006 -Xms128m -Xmx256m"
     networks:
       - ${GLOBAL_NETWORK:-services}
   stock-service:
@@ -42,6 +42,6 @@ services:
       - "./rabbitmq-status.sh:/usr/local/bin/rabbitmq-status.sh"
     environment:
       #      - "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xms128m -Xmx256m"
-      - "JAVA_OPTS=-Dapp.clients.scheme=http -Dserver.port=8888 -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5007 -Xms128m -Xmx256m"
+      - "JAVA_OPTS=-Dapp.clients.scheme=http -Dspring.profiles.active=dev-docker -Dserver.port=8888 -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5007 -Xms128m -Xmx256m"
     networks:
       - ${GLOBAL_NETWORK:-services}
